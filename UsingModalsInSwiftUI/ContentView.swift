@@ -9,8 +9,18 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State var isVisible: Bool = false
+    
     var body: some View {
-        Text("Hello World")
+        Button(action: {
+            self.isVisible.toggle()
+        }) {
+            Text("Sign in")
+        }.sheet(isPresented: $isVisible) {
+            Text("Registration page")
+                .font(.largeTitle)
+        }
     }
 }
 
